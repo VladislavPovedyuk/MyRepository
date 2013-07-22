@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation"
+		value="false" />
+	<constant name="struts.devMode" value="false" />
+
+	<package name="default" extends="struts-default" namespace="/">
+
+		<action name="add"
+			class="blizzard.warehouse.view.ItemAction" method="add">
+			<result name="success" type="chain">warehouse</result>
+			<result name="input" type="chain">warehouse</result>
+		</action>
+		
+		<action name="doregister"
+			class="blizzard.warehouse.view.UserAction" method="doregister"> 
+			<result name="success" type="chain">index</result>
+		</action>
+		
+		<action name="login"
+			class="blizzard.warehouse.view.UserAction" method="login">
+			<result name="success" type="chain">warehouse</result>
+			<result name="error" type="chain">index</result>
+		</action>
+
+		<action name="delete"
+			class="blizzard.warehouse.view.ItemAction" method="delete">
+			<result name="success" type="chain">warehouse</result>
+		</action>
+		
+		<action name="edit"
+			class="blizzard.warehouse.view.ItemAction" method="edit">
+			<result name="success" type="chain">editview</result>
+		</action>
+		
+		<action name="editview"
+			class="blizzard.warehouse.view.ItemAction">
+			<result name="success">edit.jsp</result>
+		</action>
+		
+		<action name="commitEdit"
+			class="blizzard.warehouse.view.ItemAction" method="commitEdit">
+			<result name="success" type="chain">warehouse</result>
+		</action>
+
+		<action name="index"
+			class="blizzard.warehouse.view.ItemAction">
+			<result name="success">index.jsp</result>
+		</action>
+		<action name="warehouse"
+			class="blizzard.warehouse.view.ItemAction">
+			<result name="success">warehouse.jsp</result>
+		</action>
+		<action name="register"
+			class="blizzard.warehouse.view.UserAction">
+			<result name="success">registration.jsp</result>
+		</action>
+	</package>
+	
+</struts>
